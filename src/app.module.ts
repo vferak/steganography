@@ -1,7 +1,11 @@
 import { Module } from '@nestjs/common';
-import { BasicCommand } from './basic.command';
+import { EncodeCommand } from './encode.command';
+import { SteganographyService } from './steganography.service';
+import { ImageModule } from './image/image.module';
+import { DecodeCommand } from './decode.command';
 
 @Module({
-  providers: [BasicCommand],
+  imports: [ImageModule],
+  providers: [EncodeCommand, DecodeCommand, SteganographyService],
 })
 export class AppModule {}
